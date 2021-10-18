@@ -7,14 +7,14 @@ Course material for Advanced Computer Architectures course.
 
 Fork the repo using the proper button, as shown below:
 
-![Forking](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/figures/fork.png)
+![Alt Text](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/fork.png)
 
 ### Clone your fork
 To be able to work on the project, you will need to clone it to the device.
 
 Copy the path, as shown below:
 
-![Cloning](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/figures/clone.png)
+![Cloning](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/clone.png)
 
 Create a folder with your name and surname, then 
 
