@@ -71,8 +71,8 @@ int main() {
     // DEVICE EXECUTION
     TM_device.start();
 
-     dim3 block_size( ... )
-     dim3 num_blocks( ... )
+    dim3 block_size( ... );
+    dim3 num_blocks( ... );
     /// matrixMultiplicationKernel<<< num_blocks, block_size >>>
     ///    (d_matrixA, d_matrixB, N, d_matrixC);
 
