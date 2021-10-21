@@ -1,7 +1,7 @@
 
 ## 01. VectorAdd
 
-![l1_01](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_01.jpg)
+<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_01.jpg" width="500" height=auto> 
 
 ### Performance reference table:
 CPU time | GPU time | Speedup |Device             | Author
@@ -10,7 +10,7 @@ CPU time | GPU time | Speedup |Device             | Author
 
 ## 02. 1DStencil
 
-![l1_02](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_02.jpg)
+<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_02.jpg" width="500" height=auto> 
 
 ### Performance reference table (N = 100 000 000):
 CPU time   | GPU time | Speedup  | Device             | Author
@@ -19,7 +19,8 @@ CPU time   | GPU time | Speedup  | Device             | Author
 
 ## 03. MatrixMultiplication
 
-![l1_03](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_03.jpg)
+
+<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_03.jpg" width="500" height=auto> 
 
 ### Performance reference table (N = 1024):
 CPU time   | GPU time | Speedup  | Device             | Author
@@ -28,7 +29,7 @@ CPU time   | GPU time | Speedup  | Device             | Author
 
 ## 04. MatrixTranspose
 
-![l1_04](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_04.jpg)
+<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_04.jpg" width="500" height=auto> 
 
 ### Performance reference table (N = 1024):
 CPU time   | GPU time | Speedup  | Device             | Author
