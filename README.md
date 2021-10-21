@@ -23,6 +23,15 @@ mkdir ACA/<name>_<surname>
 git clone <link copied from GitHub>
 ```
 
+### Compile the excercise
+
+
+### Benchmarking
+
+```
+std::cout << TM_host.duration() << ";" << TM_device.duration() << ";" << TM_host.duration() / TM_device.duration() << std::endl;
+```
+
 ### Do your excercise and save the changes
 Go ahead and complete the excercises. When you’re ready to submit your changes, stage and commit your changes.
 
