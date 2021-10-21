@@ -18,25 +18,42 @@ Copy the path, as shown below:
 
 Create a folder with your name and surname, then 
 
-```
+```bash
 mkdir ACA/<name>_<surname>
 git clone <link copied from GitHub>
 ```
 
 ### Compile the excercise
+In the excercise directory, create the build folder, launch the cmake command and compile the sources:
+```bash
+# Only the first time
+mkdir build
+cd build
+cmake ..
 
+# Every time you have to recompile
+make
+./<executable_name>
+```
 
 ### Benchmarking
 
-```
+Add the following line to the main function in the source file:
+```c++
 std::cout << TM_host.duration() << ";" << TM_device.duration() << ";" << TM_host.duration() / TM_device.duration() << std::endl;
 ```
+
+Then launch the benchmarking script in the build folder:
+```bash
+../../../utils/benchmark.sh <executable_name>
+```
+
 
 ### Do your excercise and save the changes
 Go ahead and complete the excercises. When you’re ready to submit your changes, stage and commit your changes.
 
 In the project root folder, type:
-```
+```bash
 git add .
 git commit -m "<comment to the changes>"
 git push
