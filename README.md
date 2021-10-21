@@ -23,7 +23,19 @@ mkdir ACA/<name>_<surname>
 git clone <link copied from GitHub>
 ```
 
-### Compile the excercise
+### Do your excercise and save the changes
+Go ahead and complete the excercises. When you’re ready to submit your changes, stage and commit your changes.
+
+In the project root folder, type:
+```bash
+git add .
+git commit -m "<comment to the changes>"
+git push
+```
+
+In this way, your excercise implementations are saved in your personal GitHub profile.
+
+## Usage
 In the excercise directory, create the build folder, launch the cmake command and compile the sources:
 ```bash
 # Only the first time
@@ -36,7 +48,7 @@ make
 ./<executable_name>
 ```
 
-### Benchmarking
+## Benchmarking
 
 Add the following line to the main function in the source file:
 ```c++
@@ -47,16 +59,3 @@ Then launch the benchmarking script in the build folder:
 ```bash
 ../../../utils/benchmark.sh <executable_name>
 ```
-
-
-### Do your excercise and save the changes
-Go ahead and complete the excercises. When you’re ready to submit your changes, stage and commit your changes.
-
-In the project root folder, type:
-```bash
-git add .
-git commit -m "<comment to the changes>"
-git push
-```
-
-In this way, your excercise implementations are saved in your personal GitHub profile.
