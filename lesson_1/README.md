@@ -1,9 +1,36 @@
 
-## VectorAdd
+## 01. VectorAdd
 
+![l1_01](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_01.jpg)
 
-
+### Performance reference table:
 CPU time | GPU time | Speedup |Device             | Author
 ---------| -------- | ------- | ------------------| ------
-902.6 ms | 29.4 ms  | 30.7x   | Nvidia Jetson TX2 | -
+894 ms   | 29 ms    | 29x     | Nvidia Jetson TX2 | -
 
+## 02. 1DStencil
+
+![l1_02](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_02.jpg)
+
+### Performance reference table (N = 100 000 000):
+CPU time   | GPU time | Speedup  | Device             | Author
+-----------| -------- | -------- | ------------------ | ------
+13640 ms   | 92 ms    | 149x     | Nvidia Jetson TX2  | -
+
+## 03. MatrixMultiplication
+
+![l1_03](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_03.jpg)
+
+### Performance reference table (N = 1024):
+CPU time   | GPU time | Speedup  | Device             | Author
+-----------| -------- | -------- | ------------------ | ------
+52100 ms   | 84 ms    | 614x     | Nvidia Jetson TX2  | -
+
+## 04. MatrixTranspose
+
+![l1_04](https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_04.jpg)
+
+### Performance reference table (N = 1024):
+CPU time   | GPU time | Speedup  | Device             | Author
+-----------| -------- | -------- | ------------------ | ------
+5474 ms   | 65 ms     | 82x     | Nvidia Jetson TX2   | -
