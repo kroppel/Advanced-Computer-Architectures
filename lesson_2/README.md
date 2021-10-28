@@ -23,7 +23,7 @@ CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 
 ## 02. MatrixTranspose (Shared Memory)
 
-<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_02.jpg" width="500" height=auto> 
+<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l2_02.jpg" width="500" height=auto> 
 
 ### Performance reference table (N = 8192):
 CPU time   | GPU time | Speedup  | Device             | Mode       |Author
