@@ -13,7 +13,7 @@ CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 
 <img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l2_01.jpg" width="500" height=auto> 
 
-### Performance reference table (N = 1024, TILE=16):
+### Performance reference table (N = 1024):
 
 CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 -----------| -------- | -------- | ------------------ | ----  |------
