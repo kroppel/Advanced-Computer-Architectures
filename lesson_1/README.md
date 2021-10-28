@@ -31,7 +31,7 @@ CPU time   | GPU time | Speedup  | Device             | Author
 
 <img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l1_04.jpg" width="500" height=auto> 
 
-### Performance reference table (N = 1024):
+### Performance reference table (N = 8192):
 CPU time   | GPU time | Speedup  | Device             | Author
 -----------| -------- | -------- | ------------------ | ------
 5474 ms   | 65 ms     | 82x     | Nvidia Jetson TX2   | -
