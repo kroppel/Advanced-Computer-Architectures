@@ -18,7 +18,7 @@ CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 -----------| -------- | -------- | ------------------ | ----  |------
 52100 ms   | 84 ms    | 614x     | Nvidia Jetson TX2  | No Shared | -
-53851 ms   | 83 ms    | 634x     | Nvidia Jetson TX2  | Shared Mem | -
+57194 ms   | 25 ms    | 2198x     | Nvidia Jetson TX2  | Shared Mem | -
 
 
 ## 02. MatrixTranspose (Shared Memory)
