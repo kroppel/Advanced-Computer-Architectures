@@ -11,7 +11,6 @@ CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 73 ms   | 12 ms    | 5x     | Nvidia Jetson TX2  | Shared Less Divergence | -
 73 ms   | 9 ms    | 7x     | Nvidia Jetson TX2  | Last Warp Opt | -
 73 ms   | 5 ms    | 13x     | Nvidia Jetson TX2  | Custom | @micheleboldo
-73 ms   | 2.7     | 13x     | Nvidia Jetson TX2  | Custom | @xaldyz
 32.9 ms   | 3.8 ms    | 8.7x     | i7 6700K, GTX 1060 (6GB) | Shared Divergence | @micheleboldo
 33.4 ms   | 2.1 ms    | 3.5x     | i7 6700K, GTX 1060 (6GB)  | Shared Less Divergence | @micheleboldo
 33.3 ms   | 0.9 ms    | 13x     | i7 6700K, GTX 1060 (6GB)  | Custom | @micheleboldo
