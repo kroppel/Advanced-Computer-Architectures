@@ -1,4 +1,4 @@
-## 00. Vector Reduction
+## 00. Gaussian Blur
 
 *A Gaussian Blur is basically a matrix multiplication operation in which a pixel is
 chose as center and all the adjacent pixels, into a predetermined radius, are used to
