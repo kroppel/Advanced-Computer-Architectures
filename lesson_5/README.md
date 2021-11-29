@@ -1,7 +1,5 @@
 ## 01. MatrixMultiplication (OpenMP)
 
-<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l2_01.jpg" width="500" height=auto> 
-
 ### Performance reference table (N = 1024):
 
 CPU time   | GPU time | Speedup  | Device             | Mode  |Author
