@@ -32,8 +32,8 @@ CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 
 <img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l5_04.jpg" width="500" height=auto> 
 
-### Performance reference table (N = 1024):
+### Performance reference table (N = 256):
 
 CPU time   | GPU time | Speedup  | Device             | Mode  |Author
 -----------| -------- | -------- | ------------------ | ----  |------
-? ms   | ? ms    | ?x     | Nvidia Jetson TX2  | OpenMP | -
+72146 ms   | 63231 ms    | 1.13x     | Nvidia Jetson TX2  | OpenMP | -
