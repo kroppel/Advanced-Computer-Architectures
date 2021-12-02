@@ -1,4 +1,4 @@
-set(PROJECT "RC4")
+set(PROJECT "Fibonacci")
 project(${PROJECT} CXX)
 
 cmake_minimum_required(VERSION 3.5)
@@ -18,10 +18,7 @@ else()
 endif()
 
 # ------------------------------------------------------------------
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 
-#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}
-#                            ${OpenMP_EXE_LINKER_FLAGS}")
-
-add_compile_options("-O3")
-add_executable(rc4 ${PROJECT_SOURCE_DIR}/RC4.cpp)
+add_executable(fibonacci ${PROJECT_SOURCE_DIR}/Fibonacci.cpp)
