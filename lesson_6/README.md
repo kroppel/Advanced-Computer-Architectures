@@ -17,3 +17,8 @@ CPU time   | CPU* time | Speedup  | Device             | Mode  |Author
 CPU time   | CPU* time | Speedup  | Device             | Mode  |Author
 -----------| -------- | -------- | ------------------ | ----  |------
 23693 ms   | 6499 ms    | 3x     | Nvidia Jetson TX2  | OpenMP (-O0) | -
+
+## 01. QuickSort
+
+<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l6_02.jpg" width="500" height=auto> 
+
