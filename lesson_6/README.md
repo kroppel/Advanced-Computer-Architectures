@@ -1,12 +1,19 @@
-## 00. MatrixMultiplication (OpenMP)
+## 00. Fibonacci
 
 <img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l6_00.jpg" width="500" height=auto> 
 
-### Performance reference table (N = 1024):
+### Performance reference table (N = 44):
 
-CPU time   | GPU time | Speedup  | Device             | Mode  |Author
+CPU time   | CPU* time | Speedup  | Device             | Mode  |Author
 -----------| -------- | -------- | ------------------ | ----  |------
-57194 ms   | 25 ms    | 2198x     | Nvidia Jetson TX2  | Shared Mem | -
-52100 ms   | 84 ms    | 614x     | Nvidia Jetson TX2  | No Shared | -
-8174 ms   |  -    | 3x     | Nvidia Jetson TX2  | OpenMP (-O3) | -
-9793 ms   |  -    | 3x     | Nvidia Jetson TX2  | OpenMP (-O0) | -
+15567 ms   | 7753 ms    | 2x     | Nvidia Jetson TX2  | OpenMP (-O0) | -
+
+## 01. QuickSort
+
+<img src="https://github.com/PARCO-LAB/Advanced-Computer-Architectures/blob/main/figures/l6_01.jpg" width="500" height=auto> 
+
+### Performance reference table (N = 1 << 20):
+
+CPU time   | CPU* time | Speedup  | Device             | Mode  |Author
+-----------| -------- | -------- | ------------------ | ----  |------
+23693 ms   | 6499 ms    | 3x     | Nvidia Jetson TX2  | OpenMP (-O0) | -
