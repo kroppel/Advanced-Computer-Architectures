@@ -18,7 +18,7 @@ __global__ void ReduceKernelHighDivergence(int* VectorIN, int N) {
 	SMem[threadIdx.x] = VectorIN[GlobalIndex];
 	__syncthreads();
 	for (int i = 1; i < blockDim.x; i *= 2) {
-		if (threadIdx.x % (i * 2) == 0)
+		if (threadIdx.x % (i * 2) == 0 && threadIdx.x + i < 1024)
 			SMem[threadIdx.x] += SMem[threadIdx.x + i];
 		__syncthreads();
 	}

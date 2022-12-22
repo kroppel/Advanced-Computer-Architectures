@@ -12,11 +12,12 @@ using namespace timer;
 const int N  = 16777216;
 #define BLOCK_SIZE 256
 
-__global__ void ReduceKernelNoDivergenceV2(int* VectorIN, int N) {
+__global__ void ReduceKernelNoDivergence(int* VectorIN, int N) {
 	__shared__ int SMem[2*1024];
 	int GlobalIndex = blockIdx.x * blockDim.x + threadIdx.x;
 	SMem[threadIdx.x] = VectorIN[GlobalIndex];
 	__syncthreads();
+
 	for (int i = 1; i < blockDim.x; i *= 2) {
 		//if (threadIdx.x % (i * 2) == 0)
 		SMem[threadIdx.x+((threadIdx.x % (i * 2))+(((threadIdx.x % (i * 2)) != 0)*1024))] += SMem[threadIdx.x + i];
@@ -61,11 +62,11 @@ int main() {
 
 	dev_TM.start();
 
-	ReduceKernelNoDivergenceV2<<<DIV(N, BLOCK_SIZE), BLOCK_SIZE>>>
+	ReduceKernelNoDivergence<<<DIV(N, BLOCK_SIZE), BLOCK_SIZE>>>
 		(devVectorIN, N);
-	ReduceKernelNoDivergenceV2<<<DIV(N, BLOCK_SIZE* BLOCK_SIZE), BLOCK_SIZE>>>
+	ReduceKernelNoDivergence<<<DIV(N, BLOCK_SIZE* BLOCK_SIZE), BLOCK_SIZE>>>
 	 	(devVectorIN, DIV(N, BLOCK_SIZE));
-	ReduceKernelNoDivergenceV2<<<DIV(N, BLOCK_SIZE * BLOCK_SIZE * BLOCK_SIZE), BLOCK_SIZE>>>
+	ReduceKernelNoDivergence<<<DIV(N, BLOCK_SIZE * BLOCK_SIZE * BLOCK_SIZE), BLOCK_SIZE>>>
 	 	(devVectorIN, DIV(N, BLOCK_SIZE * BLOCK_SIZE));
 
 	dev_TM.stop();
@@ -83,7 +84,7 @@ int main() {
 	host_TM.stop();
 
 	std::cout << std::setprecision(3)
-	      << "KernelTime No Divergence V2: " << dev_time << std::endl
+	      << "KernelTime No Divergence: " << dev_time << std::endl
 	      << "HostTime            : " << host_TM.duration() << std::endl
 	      << std::endl;
 
