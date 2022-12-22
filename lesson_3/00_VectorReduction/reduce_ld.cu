@@ -12,62 +12,33 @@ using namespace timer;
 const int N  = 16777216;
 #define BLOCK_SIZE 256
 
-__global__ void ReduceKernelHighDivergence(int* VectorIN, int N) {
+__global__ void ReduceKernelLowDivergence(int* VectorIN, int N) {
 	__shared__ int SMem[1024];
 	int GlobalIndex = blockIdx.x * blockDim.x + threadIdx.x;
 	SMem[threadIdx.x] = VectorIN[GlobalIndex];
 	__syncthreads();
-	for (int i = 1; i < blockDim.x; i *= 2) {
-		if (threadIdx.x % (i * 2) == 0)
-			SMem[threadIdx.x] += SMem[threadIdx.x + i];
-		__syncthreads();
-	}
-	if (threadIdx.x == 0)
-		VectorIN[blockIdx.x] = SMem[0];
-}
 
-__global__ void ReduceKernelNoDivergence(int* VectorIN, int N) {
-	__shared__ int SMem[1024];
-	int GlobalIndex = blockIdx.x * blockDim.x + threadIdx.x;
-	SMem[threadIdx.x] = VectorIN[GlobalIndex];
-	int accumulator = 0;
-	__syncthreads();
 	for (int i = 1; i < blockDim.x; i *= 2) {
-		accumulator = SMem[threadIdx.x];
-		accumulator += SMem[threadIdx.x + i];
-		__syncthreads();
-		SMem[threadIdx.x] = accumulator;
+		int index = threadIdx.x * i * 2;
+		if (index < blockDim.x)
+			SMem[index] += SMem[index + i];
 		__syncthreads();
 	}
 	if (threadIdx.x == 0)
-		VectorIN[blockIdx.x] = SMem[0];
-}
-
-__global__ void ReduceKernelNoDivergenceV2(int* VectorIN, int N) {
-	__shared__ int SMem[2*1024];
-	int GlobalIndex = blockIdx.x * blockDim.x + threadIdx.x;
-	SMem[threadIdx.x] = VectorIN[GlobalIndex];
-	__syncthreads();
-	for (int i = 1; i < blockDim.x; i *= 2) {
-		//if (threadIdx.x % (i * 2) == 0)
-		SMem[threadIdx.x+((threadIdx.x % (i * 2))+(((threadIdx.x % (i * 2)) != 0)*1024))] += SMem[threadIdx.x + i];
-		__syncthreads();
-	}
-	if (threadIdx.x == 0)
-		VectorIN[blockIdx.x] = SMem[0];
+		VectorOUT[blockIdx.x] = SMem[0];
 }
 
 int main() {
     
-    	// ------------------- INIT ------------------------------------------------
+	// ------------------- INIT ------------------------------------------------
 
-    	// Random Engine Initialization
-    	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    	std::default_random_engine generator (seed);
-    	std::uniform_int_distribution<int> distribution(1, 100);
+	// Random Engine Initialization
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+	std::default_random_engine generator (seed);
+	std::uniform_int_distribution<int> distribution(1, 100);
 
-    	Timer<HOST> host_TM;
-    	Timer<DEVICE> dev_TM;
+	Timer<HOST> host_TM;
+	Timer<DEVICE> dev_TM;
 
 	// ------------------ HOST INIT --------------------------------------------
 
@@ -88,28 +59,19 @@ int main() {
 
 	// ------------------- CUDA COMPUTATION  ----------------------------------
 
-    	std::cout<<"Starting computation on DEVICE "<<std::endl;
+	std::cout<<"Starting computation on DEVICE "<<std::endl;
 
-    	dev_TM.start();
-	/*
-	ReduceKernelHighDivergence<<<DIV(N, BLOCK_SIZE), BLOCK_SIZE>>>
+	dev_TM.start();
+
+	ReduceKernelLowDivergence<<<DIV(N, BLOCK_SIZE), BLOCK_SIZE>>>
 		(devVectorIN, N);
-
-	ReduceKernelHighDivergence<<<DIV(N, BLOCK_SIZE* BLOCK_SIZE), BLOCK_SIZE>>>
+	ReduceKernelLowDivergence<<<DIV(N, BLOCK_SIZE* BLOCK_SIZE), BLOCK_SIZE>>>
 	 	(devVectorIN, DIV(N, BLOCK_SIZE));
-	ReduceKernelHighDivergence<<<DIV(N, BLOCK_SIZE * BLOCK_SIZE * BLOCK_SIZE), BLOCK_SIZE>>>
-	 	(devVectorIN, DIV(N, BLOCK_SIZE * BLOCK_SIZE));
-	*/
-	ReduceKernelNoDivergenceV2<<<DIV(N, BLOCK_SIZE), BLOCK_SIZE>>>
-		(devVectorIN, N);
-
-	ReduceKernelNoDivergenceV2<<<DIV(N, BLOCK_SIZE* BLOCK_SIZE), BLOCK_SIZE>>>
-	 	(devVectorIN, DIV(N, BLOCK_SIZE));
-	ReduceKernelNoDivergenceV2<<<DIV(N, BLOCK_SIZE * BLOCK_SIZE * BLOCK_SIZE), BLOCK_SIZE>>>
+	ReduceKernelLowDivergence<<<DIV(N, BLOCK_SIZE * BLOCK_SIZE * BLOCK_SIZE), BLOCK_SIZE>>>
 	 	(devVectorIN, DIV(N, BLOCK_SIZE * BLOCK_SIZE));
 
 	dev_TM.stop();
-	dev_time = dev_TM.duration();
+	dev_time1 = dev_TM.duration();
 	CHECK_CUDA_ERROR;
 
 	SAFE_CALL( cudaMemcpy(&sum, devVectorIN, sizeof(int),
