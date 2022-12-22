@@ -25,7 +25,7 @@ __global__ void ReduceKernelLowDivergence(int* VectorIN, int N) {
 		__syncthreads();
 	}
 	if (threadIdx.x == 0)
-		VectorOUT[blockIdx.x] = SMem[0];
+		VectorIN[blockIdx.x] = SMem[0];
 }
 
 int main() {
