@@ -20,6 +20,8 @@ __global__ void ReduceKernelNoDivergence(int* VectorIN, int N) {
 
 	for (int i = 1; i < blockDim.x; i *= 2) {
 		//if (threadIdx.x % (i * 2) == 0)
+		if (GlobalIndex == 255)
+			printf("Expression is: %f", threadIdx.x+(((threadIdx.x % (i * 2)) != 0)*1024))
 		SMem[threadIdx.x+(((threadIdx.x % (i * 2)) != 0)*1024)] += SMem[threadIdx.x + i];
 		__syncthreads();
 	}
