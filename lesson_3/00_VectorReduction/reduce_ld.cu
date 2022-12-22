@@ -71,7 +71,7 @@ int main() {
 	 	(devVectorIN, DIV(N, BLOCK_SIZE * BLOCK_SIZE));
 
 	dev_TM.stop();
-	dev_time1 = dev_TM.duration();
+	dev_time = dev_TM.duration();
 	CHECK_CUDA_ERROR;
 
 	SAFE_CALL( cudaMemcpy(&sum, devVectorIN, sizeof(int),
